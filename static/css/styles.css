@@ -1,0 +1,475 @@
+html {
+    font-size: 16px;
+    
+}
+@font-face {
+    font-family: "myFont";
+    src:url("/static/AdobeCleanBlack.otf");
+}
+
+
+body {
+    margin:0;
+    padding:0;
+    background: rgb(37,40,54);
+    background: linear-gradient(90deg, rgba(37,40,54,1) 0%, rgba(24,154,146,1) 100%);
+    
+    font-family: "myFont";
+    height: 200vh;
+    overflow: auto;
+    line-height: 1.5em;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    margin-top: 3rem;
+    height: fit-content;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+    width: 80%;
+    height: 75%;
+    background: white;
+    border-radius: 1em;
+    box-shadow: 0px 0px 30px 3px black;
+    min-height: fit-content;
+    overflow: auto;
+    max-width: 400px;
+}
+
+.index-container{
+    text-align: center;
+    height: 65vh;
+    width: 80%;
+    background-color: white;
+    margin: 0 auto;    
+    border-radius: 2rem;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    overflow: auto;
+    order: 2;
+}
+
+.center h2{
+    text-align: center;
+    color: rgba(37,40,54,1);
+    padding: 10px 0 10px 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.center form{
+    padding: 0 40px;
+}
+
+form .txt-field{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 20px 0;
+}
+
+.txt-field input{
+    width: 100%;
+    padding: 0 5px;
+    height: 30px;
+    font-size: 0.9em;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txt-field label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 0.8em;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.txt-field span::before{
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(37,40,54,1) 0%, rgba(12,255,228,1) 100%);
+    transition: 0.5s;
+}
+
+.txt-field input:focus ~ label,
+.txt-field input:valid ~ label{
+    top: -7px;
+    color: rgba(37,40,54,1)
+
+}
+
+.txt-field input:focus ~ span::before,
+.txt-field input:valid ~ span::before{
+    width: 100%;
+}
+
+.pass{
+    font-size: 0.8em;
+    margin: -5px 0 20px 5px;
+    color: #a6a6a6;
+    cursor: pointer;
+}
+
+.pass:hover{
+    text-decoration: underline;
+}
+
+input[type="submit"]{
+    width: 100%;
+    height: 40px;
+    border: 1px solid;
+    background: linear-gradient(90deg, rgba(37,40,54,1) 0%, rgba(24,154,146,1) 100%);
+    border-radius: 25px;
+    font-size: 1.2em;
+    color: #e9f4fb;
+    font-weight:650;
+    cursor: pointer;
+    outline: none;
+}
+
+input[type="submit"]:hover{
+    border: 4px solid white;
+    transition: 0.3s;
+}
+
+.signup_link{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 0.8em;
+    color: #666666;
+}
+
+.signup_link a{
+    
+    color: #2691d9;
+    text-decoration: none;
+}
+
+.signup_link a:hover{
+    text-decoration: underline;
+}
+
+.footer {
+    
+    color: white;
+    margin-top: 3rem;
+    text-align: center;
+    height: 2rem;
+    width: 100%;
+    font-size: 0.685em;
+    position: relative;
+    bottom: -3rem;
+}
+
+.error{
+    margin: 25px auto;
+    color: red;
+    font-size: 0.6em;
+    padding: 0;
+    max-width: 80%;
+    text-align: center;
+}
+
+
+
+nav li{
+    display: inline-block;
+}
+
+
+nav a{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+}
+
+
+nav a:hover{
+    color: rgb(0, 51, 51);
+}
+
+nav a::before{
+    content: '';
+    display: block;
+    height: 3px;
+   
+    background: linear-gradient(90deg, rgba(37,40,54,1) 0%, rgba(12,255,228,1) 100%);
+    position: absolute;
+    top: 0;
+    width: 0;
+    transition: all ease-in-out 0.5s;
+}
+
+nav a:hover::before{
+    width: 100%;
+}
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.logo{
+    float: left;
+}
+    .logo-image{
+        width: 64px;
+        padding: 15px 0;
+    }
+
+.header:after{
+    content: '';
+    display: table;
+    clear:both;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 1;
+}
+
+.navbuttons{
+    float:right;
+    height: 50px;
+}
+.menu-buttons-nav {
+    height: 50px;
+    margin: 0 5%;
+    width:90%;
+    display: inline-block;
+
+}
+.menu-button {
+    padding-top: 12px;
+    margin-left: 16px;
+}
+
+
+
+
+.filters {
+    text-align: center;
+    order: 1;
+    width: 80%;
+    margin: 2vh auto;
+}
+    .filters-form {
+
+    }
+        .course-filter {
+            width: 80%;
+            text-align: center;
+            outline: none;
+            border: none;
+            border-radius: 0.5rem;
+            background: transparent;
+            font-weight: bold;
+            color: white;
+            
+        }
+
+        .course-filter option{
+            background-color: black;
+            
+        }
+
+
+.Active{
+    display:block;
+}
+
+.hidden {
+    display: none;
+}
+
+.grades-table{
+    width: 100%;
+    text-align: center;
+    border-collapse: separate !important;
+    font-size: 0.9em;
+    border-spacing: 0;
+    box-shadow: 0px 1rem 1rem rgba(0, 0, 0, 0.04);
+    border-radius: 0.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.th-course{
+    width: 45%
+}
+.th-data{
+    width: 35%;
+}
+
+.th-grade{
+    width: 20%;
+}
+
+.grades-table td,
+.grades-table th{
+    padding: 0.25rem;
+}
+
+.grades-table thead tr {
+    background: linear-gradient(90deg, rgba(24,154,146,1) 0%, rgba(37,40,54,1) 100%);
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 2.6rem;
+}
+
+.grades-table thead {
+    position: sticky;
+    top: 0;
+}
+
+
+.grades-table tfoot {
+    
+    position: sticky;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(12,255,228,1)  0%, rgba(37,40,54,1) 100%);
+    max-height: 3vh;
+}
+
+@media (min-width: 420px) { 
+    .grades-table th,
+    .grades-table td {
+        padding: 1vh 4vw;
+}
+}
+
+.grades-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.grades-table tbody tr:nth-of-type(even) {
+    background-color: #f0f0f0;
+
+}
+
+.grades-table tbody tr:nth-of-type(odd) {
+    background-color: #fff;
+
+}
+
+.general-average {
+    color: white;
+}
+
+
+.title-view {
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+}
+
+.statistics-list{
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    list-style-type: none;
+}
+    .statistics-list li { text-align: center; }
+    .button-view { 
+        text-align: center;
+        width: 80%;
+        color: white;
+        background-color: rgba(255,255,255,0.3);
+        margin: 1rem auto;
+        border-radius: 1rem;
+        height: 45px;
+    }
+        .text-button-view{
+            padding: 0.656rem 0.5rem;
+        }
+        .top-students-input{
+            width: 25%;
+        }
+
+
+
+
+.add-form {
+    width: 50%;
+    text-align: center;
+    align-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.table-header {
+    text-align: center;
+    padding:1rem 0;
+}
+
+.add-container{
+    height: 50vh;
+    width: 50%;
+    background-color: whitesmoke;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    border-radius: 50px;
+    box-shadow: 0px 0px 30px 3px black;
+}
+
+
+
+.field-label {
+    font-size: 1.1em;
+    float: left;
+    margin-bottom: 10px;
+}
+
+fieldset {
+    display: block;
+    outline: none;
+    border: none;
+
+}
+
+.field {
+    background-color: white;
+    display: inline-block;
+    border-radius: 1em;
+    outline: none;
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 2.5em;
+    text-align: center;
+}
+
+legend {
+    display: none;
+}
+
+
+.statistics1 {
+    display: none;
+}

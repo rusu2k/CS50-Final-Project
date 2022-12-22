@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/favicon.ico" rel="icon" />
+    <script src="/static/script/script.js"></script>
+    <link href="/static/css/styles.css" rel="stylesheet" />
+
+    <title>Catalogue: {% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header class="header">
+        <div class="menu-buttons-nav">
+            <a href="/"><img class="logo-image" src="{{url_for('static', filename='catalog-white.png')}}" alt="logo" class="logo"></a>
+            <nav class="navbuttons">
+                {% if session["user_id"] %}
+                    <ul>
+                        <li class="menu-button"><a href="/">Home</a></li>
+                        <li class="menu-button"><a href="/view">View</a></li>
+                        <li class="menu-button"><a href="/add">Add</a></li>
+                        <li class="menu-button"><a href="/logout">Log Out</a></li>
+                    </ul>
+                {% else %}
+                    <ul>
+                        <li class="menu-button"><a href="/login">Log In</a></li>
+                        <li class="menu-button"><a href="/register">Register</a></li>
+                    </ul>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+
+
+    <main class="main">
+        {% block main %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        Webpage provided by Rusu Alexandru
+    </footer>
+</body>
+</html>

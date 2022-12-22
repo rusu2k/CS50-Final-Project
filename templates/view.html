@@ -1,0 +1,44 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    View
+{% endblock %}
+
+{% block main %}
+
+    <div class="title-view">
+        <h2><strong> Statistics </strong></h2>
+    </div>
+    <ul class="statistics-list">
+        <li>
+            <button class="button-view" onclick="myAverage()">My general grade point average.</button>
+            <div class="statistics1" id="view1">
+                <table class="grades-table">
+                    <thead>
+                        <th>Course</th>
+                        <th>Average</th>
+                    </thead>
+                    <tbody>
+                        {% for avg in averages %}
+                        <tr>
+                            <td>{{ avg }}</td> 
+                            <td>{{ averages[avg] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <p class="general-average">
+                    General Average: {{ total_averages }}
+                </p>
+            </div>
+        </li>
+        <li>
+            <button class="button-view" onclick="topStudents(view2-nr)">Top <input type="number" name="view2-nr" id="view2-nr" class="top-students-input"> students.</button>
+        </li>
+        <li>
+            <button class="button-view" onclick="rank()">My rank.</button>
+        </li>
+    </ul>
+    </div>
+
+{% endblock %}

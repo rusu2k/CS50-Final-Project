@@ -1,0 +1,50 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+
+
+<div class="center">
+    <h2><strong>Log In</strong></h2>
+    {% if error %}
+        <div class="error">
+            {{ error }}
+        </div>
+    {% endif %}
+    <form action="/login" method="post">
+        <div class="txt-field">
+            <input autocomplete="off" id="username" autofocus name="username" required type="text">
+            <span></span>
+            <label>Username</label>
+        </div>
+        <div class="txt-field">
+            <input autocomplete="off" id="password" autofocus name="password" required  type="password">
+            <span></span>
+            <label>Password</label>
+        </div>
+        {% if error %}
+            <script>
+                document.addEventListener("DOMContentLoaded", function(){
+                    const usr = document.getElementById("username");
+                    usr.style.border = "1px solid red";
+                    usr.style.boxShadow = "0px 0px 2px 3px pink";
+                    usr.style.borderRadius = "5px";
+                    const pass = document.getElementById("password");
+                    pass.style.borderRadius = "5px";
+                    pass.style.border = "1px solid red";
+                    pass.style.boxShadow = "0px 0px 2px 3px pink";            
+                });
+                
+            </script>
+        {% endif %}
+        <div class="pass">Forgot Password?</div>
+        <input type="submit" value="Login">
+        <div class="signup_link">
+            Not a member? Register <a href="/register">here</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

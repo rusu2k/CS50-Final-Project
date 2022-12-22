@@ -1,0 +1,38 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    Add
+{% endblock %}
+
+{% block main %}
+    <div class="index-container" style="background-image: url('static/addbk.jpg'); margin-top: 3rem">
+        <h2 class="table-header"><strong>ADD GRADE</strong></h2>
+        {% if error %}
+        <div class="error" style="font-size:0.8em;">
+            {{ error }}
+        </div>
+    {% endif %}
+        <form class="add-form" action="/add" method="post">
+            <fieldset>
+                <legend>Choose course name</legend>
+                <label class="field-label" for="course"><strong>Course: </strong></label>
+                <select class="field course-field" name="course">
+                    <option disabled selected>Choose...</option>
+                    {% for row in courses %}
+                    <option>{{ row["course"] }}</option>
+                    {% endfor %}
+                    
+                </select>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Choose grade</legend>
+                <label class="field-label" for="grade"><strong>Grade: </strong></label>
+                
+                <input class="field grade-field" type="number" placeholder="Grade" name="grade">
+            </fieldset>
+                <input class="submit" type="submit" value="Add">
+            
+        </form>
+    </div>
+{% endblock %}

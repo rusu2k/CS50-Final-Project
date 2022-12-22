@@ -1,0 +1,50 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+
+
+    <div class="index-container">
+        <table class="grades-table" id="grades-table">
+            <thead>
+                <th class="th-course">Course</th>
+                <th class="th-grade">Grade</th>
+                <th class="th-date">Date</th>
+            </thead>
+            <tbody>
+                {% for row in grades %}
+                    <tr>
+                        <td> {{ row["course"] }} </td>
+                        <td> {{ row["grade"] }} </td>
+                        <td> {{ row["date"] }} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="filters">
+        <form action="filter" name="myform" class="filters-form" method="post">
+            <fieldset>
+                <legend class="hidden">
+                    Filters for grades
+                </legend>
+                <label value="#">
+                    <select id="course-filter" name="course-filter" onchange="this.form.submit()" class="course-filter">
+                        <option class="course-filter-option" value="Course.." selected disabled>Filter Course</option>
+                        <option class="course-filter-option" value="all">All</option>
+                        {% for row in courses %}
+                            <option class="course-filter-option"> {{ row["course"] }} </option>
+                        {% endfor %}
+                    </select>
+                </label>
+            </fieldset>
+        </form>
+    </div>
+
+
+
+{% endblock %}
